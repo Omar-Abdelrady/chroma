@@ -114,7 +114,7 @@ a
             box-sizing: border-box
             font-size: 16px
             font-weight: 400
-            color: $accents
+            // color: $accents
             &::-webkit-input-placeholder
                 color: rgba(0,0,0,0.38)
                 transition: color 300ms ease-in-out
@@ -151,35 +151,34 @@ a
     top: 64px
     z-index: 1
     background: #fff
-    margin: 0 10px
+    // margin: 0 10px
     // transition: all 0.2s ease-in-out
     &::-webkit-scrollbar
         display: none
     .chips-list
         margin: 0 auto
-        // width: 1841px
+        padding: 0 10px
         list-style: none
-        height: 61px
+        height: 62px
         .chips
             margin: 15px 6px
-            width: 31px
-            height: 31px
-            // display: inline-block
+            width: 32px
+            height: 32px
+            border: 5px solid rgba(#fff,0.4)
+            box-sizing: border-box
             float: left
             border-radius: 50px
-            box-shadow: $box-shadow-2dp
             transition: box-shadow 225ms ease-in-out
-            // cursor: pointer
             h1
                 text-align: center
                 font-size: 14px
                 color: rgba(#000,0.5)
-                padding: 7.5px 12px
+                padding: 0 12px
                 text-transform: uppercase
                 font-weight: bold
-                font-family: sans-serif
+                font-family: 'Roboto',sans-serif
                 display: none
-                line-height: 31px
+                line-height: 23px
         .color-selected
             width: initial
             h1
@@ -203,6 +202,7 @@ a
         // margin-bottom: 65px
     .card
         position: relative
+        width: 100%
         max-width: 350px
         margin: 10px
         border-radius: 2px
@@ -211,7 +211,7 @@ a
         text-align: initial
         a.color-title
             position: relative
-            color: rgba(0,0,0,0.4)
+            color: rgba(0,0,0,0.5)
             font-size: 20px
             margin: 0 0 10px
             pointer-events: none
@@ -225,6 +225,18 @@ a
                 width: 50px
                 height: 50px
                 float: left
+                .details
+                    line-height: 50px
+                    margin: 0 15px
+                    color: rgba(#fff, 0.85)
+                    display: none
+                    span
+                        font-size: 14px
+                        font-weight: 500
+                    .hex
+                        float: right
+                .dark-shade
+                    color: rgba(#000, 0.85)
 
 
     .card-hidden

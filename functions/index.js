@@ -6,7 +6,7 @@ $(function() {
     //     $('.nav-overlay').fadeIn(225);
     //     $('body, html').css('overflow', 'hidden');
     // }
-
+    //
     // //nav-close-function------------------------------------------
     // function navClose() {
     //     $('.nav-bar-wrapper').removeClass('nav-khulgya');
@@ -14,19 +14,6 @@ $(function() {
     //     $('body, html').css('overflow', 'visible');
     //     bugListClose();
     // }
-
-    // console.log($('ul.chips-list li').each(function () {
-    //     width();
-    // }));
-    //
-    // var width = 0;
-    // $('ul.chips-list li').each(function() {
-    //     var $this = $(this),
-    //         // $('ul.chips-list').css('width', width);
-    //     width = width + $this.width();
-    //     $this.after($('<div>' + width + '</div>'));
-    //     console.log(width);
-    // });
 
     function width() {
         var width = 0;
@@ -102,11 +89,7 @@ $(function() {
     //chip-filter---------------------------------------
     var card = $('.card');
 
-    // $('.black').on('click',function () {
-    //     card.not('.card').addClass('card-hidden');
-    //     $('.black').addClass('chip-clicked');
-    //     $('.chips').not('.all-chips').removeClass('chip-clicked');
-    // });
+
     $('ul.chips-list li').on('click',function () {
         $(this).addClass('color-selected');
         $('.chips').not(this).removeClass('color-selected');
@@ -115,66 +98,72 @@ $(function() {
 
     $('.chips').on('click',function () {
         card.removeClass('card-hidden');
+        $('.colors').css('width','100%');
+        $('.colors .details').css('display','block')
+    });
+    $('.chips.black').on('click',function () {
+        $('.colors').css('width','50');
+        $('.colors .details').css('display','none')
     });
 
-    $('.red500').on('click',function () {
+    $('.chips.red500').on('click',function () {
         card.not('.red').addClass('card-hidden');
     });
-    $('.pink500').on('click',function () {
+    $('.chips.pink500').on('click',function () {
         card.not('.pink').addClass('card-hidden');
     });
-    $('.purple500').on('click',function () {
+    $('.chips.purple500').on('click',function () {
         card.not('.purle').addClass('card-hidden');
     });
-    $('.deep-purple500').on('click',function () {
+    $('.chips.deep-purple500').on('click',function () {
         card.not('.deep-purple').addClass('card-hidden');
     });
-    $('.indigo500').on('click',function () {
+    $('.chips.indigo500').on('click',function () {
         card.not('.indigo').addClass('card-hidden');
     });
-    $('.blue500').on('click',function () {
+    $('.chips.blue500').on('click',function () {
         card.not('.blue').addClass('card-hidden');
     });
-    $('.light-blue500').on('click',function () {
+    $('.chips.light-blue500').on('click',function () {
         card.not('.light-blue').addClass('card-hidden');
     });
-    $('.cyan500').on('click',function () {
+    $('.chips.cyan500').on('click',function () {
         card.not('.cyan').addClass('card-hidden');
     });
-    $('.teal500').on('click',function () {
+    $('.chips.teal500').on('click',function () {
         card.not('.teal').addClass('card-hidden');
     });
-    $('.green500').on('click',function () {
+    $('.chips.green500').on('click',function () {
         card.not('.green').addClass('card-hidden');
     });
-    $('.light-green500').on('click',function () {
+    $('.chips.light-green500').on('click',function () {
         card.not('.light-green').addClass('card-hidden');
     });
-    $('.lime500').on('click',function () {
+    $('.chips.lime500').on('click',function () {
         card.not('.lime').addClass('card-hidden');
     });
-    $('.yellow500').on('click',function () {
+    $('.chips.yellow500').on('click',function () {
         card.not('.yellow').addClass('card-hidden');
     });
-    $('.amber500').on('click',function () {
+    $('.chips.amber500').on('click',function () {
         card.not('.amber').addClass('card-hidden');
     });
-    $('.orange500').on('click',function () {
+    $('.chips.orange500').on('click',function () {
         card.not('.orange').addClass('card-hidden');
     });
-    $('.deep-orange500').on('click',function () {
+    $('.chips.deep-orange500').on('click',function () {
         card.not('.deep-orange').addClass('card-hidden');
     });
 
-    $('.brown500').on('click',function () {
+    $('.chips.brown500').on('click',function () {
         card.not('.brown').addClass('card-hidden');
     });
 
-    $('.grey500').on('click',function () {
+    $('.chips.grey500').on('click',function () {
         card.not('.grey').addClass('card-hidden');
     });
 
-    $('.blue-grey500').on('click',function () {
+    $('.chips.blue-grey500').on('click',function () {
         card.not('.blue-grey').addClass('card-hidden');
     });
 
@@ -235,15 +224,3 @@ function searchFunction() {
         }
     }
 }
-
-
-
-
-// var accentColorsValues = ['#FF9100', '#F44336', '#FF5722', '#e91e63'];
-// var accentColors = accentColorsValues[Math.floor(Math.random() * accentColorsValues.length)];
-//
-// $('.wrapper').each(function() {
-//     $('').css('background-color',accentColors);
-//     $('').css('fill',accentColors);
-//     $('').css('color', accentColors);
-// });
