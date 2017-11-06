@@ -15,6 +15,29 @@ $(function() {
     //     bugListClose();
     // }
 
+    // console.log($('ul.chips-list li').each(function () {
+    //     width();
+    // }));
+    //
+    // var width = 0;
+    // $('ul.chips-list li').each(function() {
+    //     var $this = $(this),
+    //         // $('ul.chips-list').css('width', width);
+    //     width = width + $this.width();
+    //     $this.after($('<div>' + width + '</div>'));
+    //     console.log(width);
+    // });
+
+    function width() {
+        var width = 0;
+        $('ul.chips-list li').each(function() {
+            width += $(this).outerWidth(true);
+        });
+        console.log(width);
+        $('ul.chips-list').css('width', width + 1);
+    }
+    width();
+
     //search-open-function------------------------------------------
     function searchOpen() {
         $('.search-bar').addClass('search-active');
@@ -32,9 +55,6 @@ $(function() {
         $('svg.back-btn').css('display', 'none');
         $('body').css('overflow', 'visible');
     }
-
-
-
 
     //nav-open----------------------------------------
     $('svg.nav-btn').on('click',function () {
@@ -79,49 +99,94 @@ $(function() {
         $('li.bug-list, li.apps-item').not(this).removeClass('menu-item-selected');
     });
 
-    //chips-selection-----------------------------------------
-    $('.chips').on('click',function () {
-        $(this).addClass('chip-clicked');
-        $('.chips').not(this).removeClass('chip-clicked');
-    });
-
     //chip-filter---------------------------------------
     var card = $('.card');
 
-    $('.all-chips, .apps-item').on('click',function () {
-        card.not('.card').addClass('card-hidden');
-        $('.all-chips').addClass('chip-clicked');
-        $('.chips').not('.all-chips').removeClass('chip-clicked');
+    // $('.black').on('click',function () {
+    //     card.not('.card').addClass('card-hidden');
+    //     $('.black').addClass('chip-clicked');
+    //     $('.chips').not('.all-chips').removeClass('chip-clicked');
+    // });
+    $('ul.chips-list li').on('click',function () {
+        $(this).addClass('color-selected');
+        $('.chips').not(this).removeClass('color-selected');
+        width();
     });
 
-    $('.all-chips, .apps-item, .games-chips, .ec-chips, .news-chips, .trend-chips, .tools-chips').on('click',function () {
+    $('.chips').on('click',function () {
         card.removeClass('card-hidden');
     });
 
-    $('.games-chips').on('click',function () {
-        card.not('.select-games').addClass('card-hidden');
+    $('.red500').on('click',function () {
+        card.not('.red').addClass('card-hidden');
     });
-    $('.ec-chips').on('click',function () {
-        card.not('.select-ec').addClass('card-hidden');
+    $('.pink500').on('click',function () {
+        card.not('.pink').addClass('card-hidden');
     });
-    $('.news-chips').on('click',function () {
-        card.not('.select-news').addClass('card-hidden');
+    $('.purple500').on('click',function () {
+        card.not('.purle').addClass('card-hidden');
     });
-    $('.trend-chips').on('click',function () {
-        card.not('.select-trend').addClass('card-hidden');
+    $('.deep-purple500').on('click',function () {
+        card.not('.deep-purple').addClass('card-hidden');
     });
-    $('.tools-chips').on('click',function () {
-        card.not('.select-tools').addClass('card-hidden');
+    $('.indigo500').on('click',function () {
+        card.not('.indigo').addClass('card-hidden');
+    });
+    $('.blue500').on('click',function () {
+        card.not('.blue').addClass('card-hidden');
+    });
+    $('.light-blue500').on('click',function () {
+        card.not('.light-blue').addClass('card-hidden');
+    });
+    $('.cyan500').on('click',function () {
+        card.not('.cyan').addClass('card-hidden');
+    });
+    $('.teal500').on('click',function () {
+        card.not('.teal').addClass('card-hidden');
+    });
+    $('.green500').on('click',function () {
+        card.not('.green').addClass('card-hidden');
+    });
+    $('.light-green500').on('click',function () {
+        card.not('.light-green').addClass('card-hidden');
+    });
+    $('.lime500').on('click',function () {
+        card.not('.lime').addClass('card-hidden');
+    });
+    $('.yellow500').on('click',function () {
+        card.not('.yellow').addClass('card-hidden');
+    });
+    $('.amber500').on('click',function () {
+        card.not('.amber').addClass('card-hidden');
+    });
+    $('.orange500').on('click',function () {
+        card.not('.orange').addClass('card-hidden');
+    });
+    $('.deep-orange500').on('click',function () {
+        card.not('.deep-orange').addClass('card-hidden');
     });
 
-    $(window).scroll(function() {
-        if ($(window).scrollTop() > 236) {
-            $('#color-chips').css('box-shadow', 'rgba(0, 0, 0, 0.3) 0px 4px 8px');
-
-        } else {
-            $('#color-chips').css('box-shadow', 'none');
-        }
+    $('.brown500').on('click',function () {
+        card.not('.brown').addClass('card-hidden');
     });
+
+    $('.grey500').on('click',function () {
+        card.not('.grey').addClass('card-hidden');
+    });
+
+    $('.blue-grey500').on('click',function () {
+        card.not('.blue-grey').addClass('card-hidden');
+    });
+
+
+    // $(window).scroll(function() {
+    //     if ($(window).scrollTop() > 236) {
+    //         $('#color-chips').css('box-shadow', 'rgba(0, 0, 0, 0.3) 0px 4px 8px');
+    //
+    //     } else {
+    //         $('#color-chips').css('box-shadow', 'none');
+    //     }
+    // });
 
     //event.stopPropagation---------------------------------------------------
     $(".info-wrapper").children().on('click',function(event){
@@ -143,13 +208,13 @@ $(function() {
     });
 
     //-----color-auto-change
-    var primaryColorsValues = ['#F44336','#E91E63','#9C27B0','#673AB7','#3F51B5', '#2196F3', '#03A9F4','#00BCD4','#009688','#4CAF50','#8BC34A','#CDDC39','#FFEB3B','#FFC107','#FF9800','#FF5722','#795548','#9E9E9E','#607D8B'];
-
-    var primaryColors = primaryColorsValues[Math.floor(Math.random() * primaryColorsValues.length)];
-
-    $('#header').each(function() {
-        $('#header').css('background-color', primaryColors);
-    });
+    // var primaryColorsValues = ['#F44336','#E91E63','#9C27B0','#673AB7','#3F51B5', '#2196F3', '#03A9F4','#00BCD4','#009688','#4CAF50','#8BC34A','#CDDC39','#FFEB3B','#FFC107','#FF9800','#FF5722','#795548','#9E9E9E','#607D8B'];
+    //
+    // var primaryColors = primaryColorsValues[Math.floor(Math.random() * primaryColorsValues.length)];
+    //
+    // $('#header').each(function() {
+    //     $('#header').css('background-color', primaryColors);
+    // });
 });
 
 //search--------------------------------------
