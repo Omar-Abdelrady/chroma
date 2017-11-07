@@ -25,6 +25,11 @@ $(function() {
     }
     width();
 
+    $('.colors').each(function () {
+        var hex = $(this).children().children('.hex').html();
+        $(this).css('background', hex);
+    });
+
     //search-open-function------------------------------------------
     function searchOpen() {
         $('.search-bar').addClass('search-active');

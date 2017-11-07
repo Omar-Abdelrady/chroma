@@ -4,6 +4,7 @@
 //variables--------------------------------
 .dark-shade
     color: rgba(#000, 0.6) !important
+    fill: rgba(#000, 0.6) !important
 
 *
     margin: 0
@@ -201,14 +202,23 @@ a
                 float: left
                 .details
                     line-height: 50px
-                    margin: 0 15px
+                    // margin: 0 15px
                     color: rgba(#fff, 0.85)
                     display: none
                     span
                         font-size: 14px
                         font-weight: 500
+                        margin: 0 15px
                     .hex
                         float: right
+                    .copy-btn
+                        float: right
+                        padding: 8px
+                        margin: 5px 15px 0 0
+                        border-radius: 50%
+                        &:hover
+                            background: rgba(0,0,0,0.1)
+
 
     .card-hidden
         display: none
