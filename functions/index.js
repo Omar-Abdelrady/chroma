@@ -28,6 +28,7 @@ $(function() {
     $('.colors').each(function () {
         var hex = $(this).children().children('.hex').html();
         $(this).css('background', hex);
+        console.log(hex);
     });
 
     //search-open-function------------------------------------------
