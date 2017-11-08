@@ -29,8 +29,9 @@ $(function() {
         var hex = $(this).children().children('.hex').html();
         $(this).css('background', hex);
         console.log(hex);
+        var svg = $(this).children().children('.shade').after('<img class="copy-btn" src="assets/copy.svg" alt="copy-svg">');
+        // $('details').hasClass('dark-shade')
     });
-
     //search-open-function------------------------------------------
     function searchOpen() {
         $('.search-bar').addClass('search-active');
