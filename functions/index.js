@@ -15,6 +15,7 @@ $(function() {
     //     bugListClose();
     // }
 
+    //-------------chip-width
     function width() {
         var width = 0;
         $('ul.chips-list li').each(function() {
@@ -23,15 +24,61 @@ $(function() {
         console.log(width);
         $('ul.chips-list').css('width', width + 1);
     }
+
     width();
 
+
+    //-----------------colors-------------------------
+    $('ul.chips-list li').each(function() {
+        //------------chips-color---------------
+        if($(this).hasClass('black')){
+            //---khali
+        }
+        else{
+            var m =  $(this).find('h1').html() + '500';
+            $(this).addClass(m);
+        }
+        // console.log(m);
+
+        //------------header-color----------
+        $(this).on('click',function () {
+            if($(this).hasClass('black')){
+                $('#header').css('background', '#e0e0e0');
+            }
+            else{
+                var t = $(this).css('background-color');
+                $('#header').css('background', t);
+            }
+            // console.log(t);
+        });
+
+    });
+
+
+    //---------color-hex-values-boxes
     $('.colors').each(function () {
         var hex = $(this).children().children('.hex').html();
         $(this).css('background', hex);
-        console.log(hex);
         var svg = $(this).children().children('.shade').after('<img class="copy-btn" src="assets/copy.svg" alt="copy-svg">');
         // $('details').hasClass('dark-shade')
+        // console.log(hex);
+
+
+
+        // $(this).children().children('.copy-btn').on('click',function () {
+        //
+        //     // var copyText = $(this).children().children('.hex').html();
+        //     // hex.select();
+        //     // document.execCommand("Copy");
+        //     // alert("Copied the text: " + hex.value);
+        //     // console.log(hex);
+        // });
     });
+
+
+
+
+
     //search-open-function------------------------------------------
     function searchOpen() {
         $('.search-bar').addClass('search-active');
