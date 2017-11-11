@@ -85,7 +85,7 @@ $(function() {
 
     $('.color-wrapper').each(function () {
         $(this).append('<div class="select-btn"></div>');
-        var n = $(this).children('.colors:nth-child(5)').css('background-color');
+        var n = $(this).children('.colors:nth-child(6)').css('background-color');
         $(this).children('.select-btn').css('background-color', n);
         console.log(n);
     });
