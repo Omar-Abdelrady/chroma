@@ -18,30 +18,32 @@
 
 <body>
     <section id="header">
-        <div class="search-overlay"></div>
-        <div class="search-bar">
-            <svg class="nav-btn" xmlns="https://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+        <div class="search-wrapper">
+            <div class="search-overlay"></div>
+            <div class="search-bar">
+                <svg class="nav-btn" xmlns="https://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
                            <path d="M0 0h48v48H0z" fill="none"/>
                            <path d="M6 36h36v-4H6v4zm0-10h36v-4H6v4zm0-14v4h36v-4H6z"/>
                        </svg>
-            <svg class="back-btn" xmlns="https://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+                <svg class="back-btn" xmlns="https://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
                            <path d="M0 0h48v48H0z" fill="none"/>
                            <path d="M40 22H15.66l11.17-11.17L24 8 8 24l16 16 2.83-2.83L15.66 26H40v-4z"/>
                    </svg>
-            <input autocomplete="off" id="myinput" onkeyup="searchFunction()" class="search-text-field" type="text" name="search" value="" placeholder="Search">
-            <svg class="search-btn" xmlns="https://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+                <input autocomplete="off" id="myinput" onkeyup="searchFunction()" class="search-text-field" type="text" name="search" value="" placeholder="Search">
+                <svg class="search-btn" xmlns="https://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
                        <path d="M31 28h-1.59l-.55-.55C30.82 25.18 32 22.23 32 19c0-7.18-5.82-13-13-13S6 11.82 6 19s5.82 13 13 13c3.23 0 6.18-1.18 8.45-3.13l.55.55V31l10 9.98L40.98 38 31 28zm-12 0c-4.97 0-9-4.03-9-9s4.03-9 9-9 9 4.03 9 9-4.03 9-9 9z"/>
                        <path d="M0 0h48v48H0z" fill="none"/>
                    </svg>
-            <svg class="search-close-btn" xmlns="https://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+                <svg class="search-close-btn" xmlns="https://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
                        <path d="M38 12.83L35.17 10 24 21.17 12.83 10 10 12.83 21.17 24 10 35.17 12.83 38 24 26.83 35.17 38 38 35.17 26.83 24z"/>
                        <path d="M0 0h48v48H0z" fill="none"/>
                    </svg>
+            </div>
         </div>
         <section id="color-chips">
             <ul class="chips-list">
-                <li class="chips black color-selected">
-                    <h1 style="color: #fff;">All</h1></li>
+                <li class="chips color-selected">
+                    <h1 style="color: #fff;">all</h1></li>
                 <li class="chips">
                     <h1>red</h1></li>
                 <li class="chips">
@@ -74,7 +76,7 @@
                     <h1 class="dark-shade">orange</h1></li>
                 <li class="chips">
                     <h1 class="dark-shade">deep-orange</h1></li>
-                <li class="chips ">
+                <li class="chips">
                     <h1>brown</h1></li>
                 <li class="chips">
                     <h1 class="dark-shade">grey</h1></li>
@@ -88,8 +90,9 @@
         <ul id="grid-wrapper">
             <!-- -------------------------red -->
             <li class="card red">
-                <a href="#" class="color-title"> Red</a>
+                <a href="#" class="color-title">Red</a>
                 <div class="color-wrapper">
+                    <!-- <div class="select-btn"></div> -->
                     <div class="colors">
                         <div class="details dark-shade">
                             <span class="shade">50</span>
@@ -178,8 +181,9 @@
             </li>
             <!-- -------------------------pink -->
             <li class="card pink">
-                <a href="#" class="color-title"> Pink </a>
+                <a href="#" class="color-title">Pink </a>
                 <div class="color-wrapper">
+                    <!-- <div class="select-btn"></div> -->
                     <div class="colors">
                         <div class="details dark-shade">
                             <span class="shade">50</span>
@@ -267,8 +271,8 @@
                 </div>
             </li>
             <!-- -------------------------purple -->
-            <li class="card purle">
-                <a href="#" class="color-title"> Purple</a>
+            <li class="card purple">
+                <a href="#" class="color-title">Purple</a>
                 <div class="color-wrapper">
                     <div class="colors">
                         <div class="details dark-shade">
