@@ -27,15 +27,41 @@ $(function() {
 
     width();
 
+    //---------color-hex-values-boxes
+    $('.colors').each(function () {
+        var hex = $(this).children().children('.hex').html();
+        $(this).css('background', hex);
+        var svg = $(this).children().children('.shade').after('<img class="copy-btn" src="assets/copy.svg" alt="copy-svg">');
+        // $('details').hasClass('dark-shade')
+        // console.log(hex);
+
+        // $(this).children().children('.copy-btn').on('click',function () {
+        //
+        //     // var copyText = $(this).children().children('.hex').html();
+        //     // hex.select();
+        //     // document.execCommand("Copy");
+        //     // alert("Copied the text: " + hex.value);
+        //     // console.log(hex);
+        // });
+    });
+
+    //-----------------select-btn--------------
+    $('.color-wrapper').each(function () {
+        $(this).append('<div class="select-btn"></div>');
+        var selectBtnColor = $(this).children('.colors:nth-child(6)').css('background-color');
+        $(this).children('.select-btn').css('background-color', selectBtnColor);
+        console.log(selectBtnColor);
+
+    });
+
     //-----------------colors-------------------------
-    $('ul.chips-list li').each(function() {
+    $('ul.chips-list li, .select-btn').each(function() {
         //------------chips-color---------------
         // if(i > 0){
             //---khali
             var colorClass =  $(this).find('h1').html();
             $(this).addClass(colorClass);
         // }
-
 
         // else{
         //     var colorClass =  $(this).find('h1').html() + '500';
@@ -53,7 +79,7 @@ $(function() {
                 $('.search-wrapper').css('background', headerColor);
                 // $('#header').css('background-color').replace(')', ', 0.4)').replace('rgb', 'rgba');
         //     }
-        //     console.log(headerColor);
+            console.log(headerColor);
         });
 
     });
@@ -62,39 +88,34 @@ $(function() {
 
 
 
-    //---------color-hex-values-boxes
-    $('.colors').each(function () {
-        var hex = $(this).children().children('.hex').html();
-        $(this).css('background', hex);
-        var svg = $(this).children().children('.shade').after('<img class="copy-btn" src="assets/copy.svg" alt="copy-svg">');
-        // $('details').hasClass('dark-shade')
-        // console.log(hex);
+  //  function copyToClipboard() {
+  //      var target = $('#hidden_text');
+  //
+  //      // make it visible, so can be focused
+  //      target.attr('type', 'text');
+  //      target.focus();
+  //      // select all the text
+  //      target[0].setSelectionRange(0, target.val().length);
+  //
+  //      // copy the selection
+  //      var succeed;
+  //      try {
+  //          succeed = document.execCommand("copy");
+  //      } catch (e) {
+  //          succeed = false;
+  //      }
+  //
+  //      // hide input again
+  //      target.attr('type', 'hidden');
+  //
+  //      return succeed;
+  //  }
+  //
+  //  $('.select-btn').on('click', function () {
+  //     $(this).html().copyToClipboard();
+  // });
 
-
-
-
-        // $(this).children().children('.copy-btn').on('click',function () {
-        //
-        //     // var copyText = $(this).children().children('.hex').html();
-        //     // hex.select();
-        //     // document.execCommand("Copy");
-        //     // alert("Copied the text: " + hex.value);
-        //     // console.log(hex);
-        // });
-    });
-
-    $('.color-wrapper').each(function () {
-        $(this).append('<div class="select-btn"></div>');
-        var n = $(this).children('.colors:nth-child(6)').css('background-color');
-        $(this).children('.select-btn').css('background-color', n);
-        console.log(n);
-    });
-
-
-
-
-
-    //search-open-function------------------------------------------
+    //search-open-function--------------------------------
     function searchOpen() {
         $('.search-bar').addClass('search-active');
         $('svg.nav-btn').css('display', 'none');
@@ -103,7 +124,7 @@ $(function() {
         $('body').css('overflow', 'hidden');
     }
 
-    //search-close-function------------------------------------------
+    //search-close-function-------------------------------
     function searchClose() {
         $('.search-bar').removeClass('search-active');
         $('.search-overlay').fadeOut(195);
@@ -112,7 +133,7 @@ $(function() {
         $('body').css('overflow', 'visible');
     }
 
-    // //nav-open----------------------------------------
+    // //nav-open------------------------------------
     // $('svg.nav-btn').on('click',function () {
     //     navOpen();
     // });
@@ -122,7 +143,7 @@ $(function() {
     //     navClose();
     // });
 
-    //search-input-value-reset-------------------------------------------
+    //search-input-value-reset-----------------------------
     $('svg.search-close-btn').on('click',function () {
         $('input.search-text-field').val('');
         card.removeAttr('style');
@@ -130,7 +151,7 @@ $(function() {
         $('svg.search-close-btn').css('display', 'none');
     });
 
-    //search-bar-open-and-close--------------------------------------
+    //search-bar-open-and-close---------------------------
     $('.search-text-field, svg.search-btn,.search-overlay, svg.back-btn').on('click',function () {
         if($('.search-bar').hasClass('search-active') && $('#myinput').val() != '' ) {
             searchClose();
@@ -149,19 +170,19 @@ $(function() {
         }
     });
 
-    // //nav-list-selection--------------------------------------------------
+    // //nav-list-selection------------------------------
     // $('li.apps-item, li.bug-list').on('click',function () {
     //     $('li.apps-item, li.bug-list').addClass('menu-item-selected');
     //     $('li.bug-list, li.apps-item').not(this).removeClass('menu-item-selected');
     // });
 
-    //chip-filter---------------------------------------
+    //chip-filter--------------------------------
 
     var card = $('.card');
     //-----other-selection--------------
     function otherChipSelected() {
         $('.chips').on('click',function () {
-            var h = $(this).attr('class').split(' ')[1];
+            var chipsSecondClassColor = '.' + $(this).attr('class').split(' ')[1];
 
             card.removeClass('card-hidden');
             //-----all-color-selected
@@ -172,8 +193,28 @@ $(function() {
             $('.colors').css('width','100%');
             $('.colors .details').css('display','block')
             //------hides-cards-which-are-not-selected
-            card.not('.' + h).addClass('card-hidden');
-            // console.log(h);
+            card.not(chipsSecondClassColor).addClass('card-hidden');
+            console.log(chipsSecondClassColor);
+
+            $('.select-btn').hide();
+
+        });
+        $('.select-btn').on('click',function () {
+            // var h = $(this).attr('class').split(' ')[1];
+            var cardSecondClassColor = '.' + $(this).parents('.card').attr('class').split(' ')[1];
+            console.log(cardSecondClassColor);
+            card.removeClass('card-hidden');
+            //-----all-color-selected
+            $('.chips' + cardSecondClassColor).addClass('color-selected');
+            $('.chips').not(cardSecondClassColor).removeClass('color-selected');
+            width();
+            // //------selects-colors-from-chips
+            $('.colors').css('width','100%');
+            $('.colors .details').css('display','block')
+            // //------hides-cards-which-are-not-selected
+            card.not(cardSecondClassColor).addClass('card-hidden');
+            // // console.log(h);
+            //
             $('.select-btn').hide();
 
         });
@@ -184,11 +225,10 @@ $(function() {
         $('.chips.all').on('click',function () {
             card.not('.all').removeClass('card-hidden');
 
-            $('.colors').css('width','50');
+            $('.colors').css('width','14.28%');
             $('.colors .details').css('display','none')
 
             $('.select-btn').show();
-
         });
 
     }
@@ -196,6 +236,85 @@ $(function() {
     otherChipSelected();
     allChipSelected();
 
+    // $('.chips').on('click',function () {
+    //     var card = $('.card');
+    //     var h = $(this).attr('class').split(' ')[1];
+    //
+    //     card.not('.' + h).addClass('card-hidden');
+    //
+    //     // console.log(h);
+    // });
+
+    // $('.chips.red500').on('click',function () {
+    //     card.not('.red').addClass('card-hidden');
+    // });
+    // $('.chips.pink500').on('click',function () {
+    //     card.not('.pink').addClass('card-hidden');
+    // });
+    // $('.chips.purple500').on('click',function () {
+    //     card.not('.purple').addClass('card-hidden');
+    // });
+    // $('.chips.deep-purple500').on('click',function () {
+    //     card.not('.deep-purple').addClass('card-hidden');
+    // });
+    // $('.chips.indigo500').on('click',function () {
+    //     card.not('.indigo').addClass('card-hidden');
+    // });
+    // $('.chips.blue500').on('click',function () {
+    //     card.not('.blue').addClass('card-hidden');
+    // });
+    // $('.chips.light-blue500').on('click',function () {
+    //     card.not('.light-blue').addClass('card-hidden');
+    // });
+    // $('.chips.cyan500').on('click',function () {
+    //     card.not('.cyan').addClass('card-hidden');
+    // });
+    // $('.chips.teal500').on('click',function () {
+    //     card.not('.teal').addClass('card-hidden');
+    // });
+    // $('.chips.green500').on('click',function () {
+    //     card.not('.green').addClass('card-hidden');
+    // });
+    // $('.chips.light-green500').on('click',function () {
+    //     card.not('.light-green').addClass('card-hidden');
+    // });
+    // $('.chips.lime500').on('click',function () {
+    //     card.not('.lime').addClass('card-hidden');
+    // });
+    // $('.chips.yellow500').on('click',function () {
+    //     card.not('.yellow').addClass('card-hidden');
+    // });
+    // $('.chips.amber500').on('click',function () {
+    //     card.not('.amber').addClass('card-hidden');
+    // });
+    // $('.chips.orange500').on('click',function () {
+    //     card.not('.orange').addClass('card-hidden');
+    // });
+    // $('.chips.deep-orange500').on('click',function () {
+    //     card.not('.deep-orange').addClass('card-hidden');
+    // });
+    //
+    // $('.chips.brown500').on('click',function () {
+    //     card.not('.brown').addClass('card-hidden');
+    // });
+    //
+    // $('.chips.grey500').on('click',function () {
+    //     card.not('.grey').addClass('card-hidden');
+    // });
+    //
+    // $('.chips.blue-grey500').on('click',function () {
+    //     card.not('.blue-grey').addClass('card-hidden');
+    // });
+
+
+
+
+
+    // $('.chips').each(function () {
+    //     var q = (this).children('h1').html();
+    //     var w = card.children('a').html();
+    //
+    // });
 
 
 
@@ -240,6 +359,7 @@ $(function() {
     // $('#header').each(function() {
     //     $('#header').css('background-color', primaryColors);
     // });
+
 });
 
 //search--------------------------------------
