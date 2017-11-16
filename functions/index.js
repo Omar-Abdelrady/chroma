@@ -1,19 +1,19 @@
 $(function() {
 
-    // //nav-open-function------------------------------------------
-    // function navOpen() {
-    //     $('.nav-bar-wrapper').toggleClass('nav-khulgya');
-    //     $('.nav-overlay').fadeIn(225);
-    //     $('body, html').css('overflow', 'hidden');
-    // }
-    //
-    // //nav-close-function------------------------------------------
-    // function navClose() {
-    //     $('.nav-bar-wrapper').removeClass('nav-khulgya');
-    //     $('.nav-overlay').fadeOut(225);
-    //     $('body, html').css('overflow', 'visible');
-    //     bugListClose();
-    // }
+    //nav-open-function---------------------------------
+    function navOpen() {
+        $('.nav-bar-wrapper').toggleClass('nav-khulgya');
+        $('.nav-overlay').fadeIn(225);
+        $('body, html').css('overflow', 'hidden');
+    }
+
+    //nav-close-function----------------------------------
+    function navClose() {
+        $('.nav-bar-wrapper').removeClass('nav-khulgya');
+        $('.nav-overlay').fadeOut(225);
+        $('body, html').css('overflow', 'visible');
+        bugListClose();
+    }
 
     //-------------chip-width
     function width() {
@@ -133,15 +133,15 @@ $(function() {
         $('body').css('overflow', 'visible');
     }
 
-    // //nav-open------------------------------------
-    // $('svg.nav-btn').on('click',function () {
-    //     navOpen();
-    // });
-    //
-    // //nav-close----------------------------------------
-    // $('.nav-overlay,li.menu-item').on('click',function () {
-    //     navClose();
-    // });
+    //nav-open------------------------------------
+    $('svg.nav-btn').on('click',function () {
+        navOpen();
+    });
+
+    //nav-close----------------------------------------
+    $('.nav-overlay,li.menu-item').on('click',function () {
+        navClose();
+    });
 
     //search-input-value-reset-----------------------------
     $('svg.search-close-btn').on('click',function () {
@@ -170,11 +170,11 @@ $(function() {
         }
     });
 
-    // //nav-list-selection------------------------------
-    // $('li.apps-item, li.bug-list').on('click',function () {
-    //     $('li.apps-item, li.bug-list').addClass('menu-item-selected');
-    //     $('li.bug-list, li.apps-item').not(this).removeClass('menu-item-selected');
-    // });
+    //nav-list-selection------------------------------
+    $('li.apps-item, li.bug-list').on('click',function () {
+        $('li.apps-item, li.bug-list').addClass('menu-item-selected');
+        $('li.bug-list, li.apps-item').not(this).removeClass('menu-item-selected');
+    });
 
     //chip-filter--------------------------------
 
