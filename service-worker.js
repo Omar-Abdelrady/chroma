@@ -31,11 +31,11 @@ const PRECACHE_URLS = [
     // jquery file if you are using jquery in your site
     'functions/jquery.min.js',
     // javascript filter
-    'functions/index.js'
+    'functions/index.js',
     // manifest file
-    'functions/manifest.json'
+    'functions/manifest.json',
     // assets
-    'assets/copy.svg'
+    'assets/copy.svg',
     // favicon
     'assets/favicon.ico'
 
