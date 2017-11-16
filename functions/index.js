@@ -134,14 +134,14 @@ $(function() {
     }
 
     //nav-open------------------------------------
-    $('svg.nav-btn').on('click',function () {
-        navOpen();
-    });
-
-    //nav-close----------------------------------------
-    $('.nav-overlay,li.menu-item').on('click',function () {
-        navClose();
-    });
+    // $('svg.nav-btn').on('click',function () {
+    //     navOpen();
+    // });
+    //
+    // //nav-close----------------------------------------
+    // $('.nav-overlay,li.menu-item').on('click',function () {
+    //     navClose();
+    // });
 
     //search-input-value-reset-----------------------------
     $('svg.search-close-btn').on('click',function () {
