@@ -77,6 +77,7 @@ $(function() {
         //     else{
                 var headerColor = $(this).css('background-color').replace(')', ', 0.2)').replace('rgb', 'rgba');
                 $('.search-wrapper').css('background', headerColor);
+
                 // $('#header').css('background-color').replace(')', ', 0.4)').replace('rgb', 'rgba');
         //     }
             console.log(headerColor);
@@ -209,6 +210,8 @@ $(function() {
 
             $('#color-chips').animate({scrollLeft: "-=1000px"});
             width();
+
+            $('.search-wrapper').css('background', 'rgba(0,0,0,0.2)');
         });
 
     }
