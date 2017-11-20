@@ -167,8 +167,8 @@ $(function() {
             console.log(chipsSecondClassColor);
 
             $('.select-btn').hide();
-
             $('.fab').addClass('display-fab');
+
 
         });
         $('.select-btn').on('click',function () {
@@ -185,7 +185,7 @@ $(function() {
             $('.colors .details').show();
             // //------hides-cards-which-are-not-selected
             card.not(cardSecondClassColor).addClass('card-hidden');
-            // // console.log(h);
+            // console.log(h);
             //
             $('.select-btn').hide();
             $('.fab').addClass('display-fab');
@@ -195,7 +195,7 @@ $(function() {
     }
     //all-card-selected------------
     function allChipSelected() {
-        $('.chips.all').on('click',function () {
+        $('.chips.all, .fab').on('click',function () {
             card.not('.all').removeClass('card-hidden');
 
             $('.colors').css('width','14.28%');
@@ -203,6 +203,12 @@ $(function() {
 
             $('.select-btn').show();
             $('.fab').removeClass('display-fab');
+
+            $('.all').addClass('color-selected');
+            $('.chips').not('.all').removeClass('color-selected');
+
+            $('#color-chips').animate({scrollLeft: "-=1000px"});
+            width();
         });
 
     }
@@ -210,9 +216,8 @@ $(function() {
     otherChipSelected();
     allChipSelected();
 
-    $('.fab').on('click',function () {
-        location.reload();
-    })
+    // $('.fab').on('click',function () {
+    // });
 
     // $('.chips').on('click',function () {
     //     var card = $('.card');
