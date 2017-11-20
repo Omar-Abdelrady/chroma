@@ -85,36 +85,6 @@ $(function() {
     });
 
 
-
-
-
-  //  function copyToClipboard() {
-  //      var target = $('#hidden_text');
-  //
-  //      // make it visible, so can be focused
-  //      target.attr('type', 'text');
-  //      target.focus();
-  //      // select all the text
-  //      target[0].setSelectionRange(0, target.val().length);
-  //
-  //      // copy the selection
-  //      var succeed;
-  //      try {
-  //          succeed = document.execCommand("copy");
-  //      } catch (e) {
-  //          succeed = false;
-  //      }
-  //
-  //      // hide input again
-  //      target.attr('type', 'hidden');
-  //
-  //      return succeed;
-  //  }
-  //
-  //  $('.select-btn').on('click', function () {
-  //     $(this).html().copyToClipboard();
-  // });
-
     //search-open-function--------------------------------
     function searchOpen() {
         $('.search-bar').addClass('search-active');
@@ -191,12 +161,14 @@ $(function() {
             width();
             //------selects-colors-from-chips
             $('.colors').css('width','100%');
-            $('.colors .details').css('display','block')
+            $('.colors .details').show();
             //------hides-cards-which-are-not-selected
             card.not(chipsSecondClassColor).addClass('card-hidden');
             console.log(chipsSecondClassColor);
 
             $('.select-btn').hide();
+
+            $('.fab').addClass('display-fab');
 
         });
         $('.select-btn').on('click',function () {
@@ -210,12 +182,13 @@ $(function() {
             width();
             // //------selects-colors-from-chips
             $('.colors').css('width','100%');
-            $('.colors .details').css('display','block')
+            $('.colors .details').show();
             // //------hides-cards-which-are-not-selected
             card.not(cardSecondClassColor).addClass('card-hidden');
             // // console.log(h);
             //
             $('.select-btn').hide();
+            $('.fab').addClass('display-fab');
 
         });
 
@@ -226,15 +199,20 @@ $(function() {
             card.not('.all').removeClass('card-hidden');
 
             $('.colors').css('width','14.28%');
-            $('.colors .details').css('display','none')
+            $('.colors .details').hide();
 
             $('.select-btn').show();
+            $('.fab').removeClass('display-fab');
         });
 
     }
 
     otherChipSelected();
     allChipSelected();
+
+    $('.fab').on('click',function () {
+        location.reload();
+    })
 
     // $('.chips').on('click',function () {
     //     var card = $('.card');
