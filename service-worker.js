@@ -36,6 +36,8 @@ const PRECACHE_URLS = [
     'functions/manifest.json',
     // assets
     'assets/copy.svg',
+    'assets/512x512.png',
+    'assets/favicon.ico'
 
 ];
 

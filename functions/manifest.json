@@ -2,10 +2,9 @@
   "name": "Chroma : Material Palette",
   "short_name": "Chroma",
   "icons": [{
-      "src": "../assets/s.svg",
+      "src": "../assets/512x512.png",
       "sizes": "512x512",
       "type": "image/png"
-
 }],
   "start_url": "../index.html?homescreen=1",
   "display": "standalone",
