@@ -2,11 +2,11 @@
   "name": "Chroma : Material Palette",
   "short_name": "Chroma",
   "icons": [{
-      "src": "../assets/manifest-icons/512x512.png",
+      "src": "../assets/favicon.ico",
       "sizes": "512x512",
       "type": "image/png"
-      "density" : "4.0"
-    }],
+
+}],
   "start_url": "../index.html?homescreen=1",
   "display": "standalone",
   "orientation": "portrait",
