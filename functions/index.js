@@ -225,7 +225,12 @@ $(function() {
         var dummy = $('<input>').val(e).appendTo('body').select();
         document.execCommand("copy");
         dummy.remove();
+        $('.snack').hide();
+        $('.snack').html('Hex -- ' +'<i>' + e + '</i>' + ' -- Copied').show();
+            $('.snack').delay(2000).fadeOut(0);
     });
+
+
     // $('.fab').on('click',function () {
     // });
 
