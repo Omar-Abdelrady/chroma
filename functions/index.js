@@ -219,6 +219,13 @@ $(function() {
     otherChipSelected();
     allChipSelected();
 
+    // copy-hex-values---------------------------
+    $('.copy-btn').click(function(){
+        var e = $(this).siblings('.hex').html();
+        var dummy = $('<input>').val(e).appendTo('body').select();
+        document.execCommand("copy");
+        dummy.remove();
+    });
     // $('.fab').on('click',function () {
     // });
 
