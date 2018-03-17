@@ -10,14 +10,14 @@ $(function() {
     width();
 
     //---------color-hex-values-boxes
-    $('.colors').each(function () {
+    $('.colors').each(function() {
         var hex = $(this).children().children('.hex').html();
         $(this).css('background', hex);
         var svg = $(this).children().children('.shade').after('<img class="copy-btn" src="assets/copy.svg" alt="copy-svg">');
     });
 
     //-----------------select-btn--------------
-    $('.color-wrapper').each(function () {
+    $('.color-wrapper').each(function() {
         $(this).append('<div class="select-btn"></div>');
         var selectBtnColor = $(this).children('.colors:nth-child(6)').css('background-color');
         $(this).children('.select-btn').css('background-color', selectBtnColor);
@@ -26,10 +26,10 @@ $(function() {
     //-----------------colors-------------------------
     $('ul.chips-list li, .select-btn').each(function() {
         //------------chips-color---------------
-            var colorClass =  $(this).find('h1').html();
-            $(this).addClass(colorClass);
+        var colorClass = $(this).find('h1').html();
+        $(this).addClass(colorClass);
         //------------header-color----------
-        $(this).on('click',function () {
+        $(this).on('click', function() {
             var headerColor = $(this).css('background-color').replace(')', ', 0.2)').replace('rgb', 'rgba');
             $('.search-wrapper').css('background', headerColor);
         });
@@ -54,7 +54,7 @@ $(function() {
     }
 
     //search-input-value-reset-----------------------------
-    $('svg.search-close-btn').on('click',function () {
+    $('svg.search-close-btn').on('click', function() {
         $('input.search-text-field').val('');
         card.removeAttr('style');
         $('svg.search-btn').css('display', 'inline-block');
@@ -62,18 +62,16 @@ $(function() {
     });
 
     //search-bar-open-and-close---------------------------
-    $('.search-text-field, svg.search-btn,.search-overlay, svg.back-btn').on('click',function () {
-        if($('.search-bar').hasClass('search-active') && $('#myinput').val() != '' ) {
+    $('.search-text-field, svg.search-btn,.search-overlay, svg.back-btn').on('click', function() {
+        if ($('.search-bar').hasClass('search-active') && $('#myinput').val() != '') {
             searchClose();
             searchFunction();
             $('svg.search-btn').css('display', 'none');
             $('svg.search-close-btn').css('display', 'inline-block');
-        }
-        else if($('.search-bar').hasClass('search-active') && $('#myinput').val() === '' ) {
+        } else if ($('.search-bar').hasClass('search-active') && $('#myinput').val() === '') {
             searchClose();
             searchFunction();
-        }
-        else {
+        } else {
             searchOpen();
             $('svg.search-btn').css('display', 'inline-block');
             $('svg.search-close-btn').css('display', 'none');
@@ -85,7 +83,7 @@ $(function() {
     var card = $('.card');
     //-----other-selection--------------
     function otherChipSelected() {
-        $('.chips').on('click',function () {
+        $('.chips').on('click', function() {
             var chipsSecondClassColor = '.' + $(this).attr('class').split(' ')[1];
 
             card.removeClass('card-hidden');
@@ -94,7 +92,7 @@ $(function() {
             $('.chips').not(this).removeClass('color-selected');
             width();
             //------selects-colors-from-chips
-            $('.colors').css('width','100%');
+            $('.colors').css('width', '100%');
             $('.colors .details').show();
             //------hides-cards-which-are-not-selected
             card.not(chipsSecondClassColor).addClass('card-hidden');
@@ -104,7 +102,7 @@ $(function() {
 
 
         });
-        $('.select-btn').on('click',function () {
+        $('.select-btn').on('click', function() {
             // var h = $(this).attr('class').split(' ')[1];
             var cardSecondClassColor = '.' + $(this).parents('.card').attr('class').split(' ')[1];
             console.log(cardSecondClassColor);
@@ -114,7 +112,7 @@ $(function() {
             $('.chips').not(cardSecondClassColor).removeClass('color-selected');
             width();
             // //------selects-colors-from-chips
-            $('.colors').css('width','100%');
+            $('.colors').css('width', '100%');
             $('.colors .details').show();
             // //------hides-cards-which-are-not-selected
             card.not(cardSecondClassColor).addClass('card-hidden');
@@ -126,10 +124,10 @@ $(function() {
     }
     //all-card-selected------------
     function allChipSelected() {
-        $('.chips.all, .fab').on('click',function () {
+        $('.chips.all, .fab').on('click', function() {
             card.not('.all').removeClass('card-hidden');
 
-            $('.colors').css('width','14.28%');
+            $('.colors').css('width', '14.28%');
             $('.colors .details').hide();
 
             $('.select-btn').show();
@@ -138,7 +136,9 @@ $(function() {
             $('.all').addClass('color-selected');
             $('.chips').not('.all').removeClass('color-selected');
 
-            $('#color-chips').animate({scrollLeft: "-=1000px"});
+            $('#color-chips').animate({
+                scrollLeft: "-=1000px"
+            });
             width();
 
             $('.search-wrapper').css('background', 'rgba(0,0,0,0.2)');
@@ -150,18 +150,18 @@ $(function() {
     allChipSelected();
 
     // copy-hex-values---------------------------
-    $('.copy-btn').click(function(){
+    $('.copy-btn').click(function() {
         var e = $(this).siblings('.hex').html();
         var dummy = $('<input>').val(e).appendTo('body').select();
         document.execCommand("copy");
         dummy.remove();
         $('.snack').hide();
-        $('.snack').html('Hex -- ' +'<i>' + e + '</i>' + ' -- Copied').show();
-            $('.snack').delay(2000).fadeOut(0);
+        $('.snack').html('Hex -- ' + '<i>' + e + '</i>' + ' -- Copied').show();
+        $('.snack').delay(2000).fadeOut(0);
     });
 
     //event.stopPropagation---------------------------------------------------
-    $(".info-wrapper").children().on('click',function(event){
+    $(".info-wrapper").children().on('click', function(event) {
         event.stopPropagation();
     });
 
