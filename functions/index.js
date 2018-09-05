@@ -105,7 +105,7 @@ $(function() {
         $('.select-btn').on('click', function() {
             // var h = $(this).attr('class').split(' ')[1];
             var cardSecondClassColor = '.' + $(this).parents('.card').attr('class').split(' ')[1];
-            console.log(cardSecondClassColor);
+            // console.log(cardSecondClassColor);
             card.removeClass('card-hidden');
             //-----all-color-selected
             $('.chips' + cardSecondClassColor).addClass('color-selected');
