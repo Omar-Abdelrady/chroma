@@ -1,3 +1,17 @@
+//import data
+$.ajax({
+    // url: "functions/colors.json",
+    url: "https://roneetkumar.github.io/chroma/functions/colors.json",
+    dataType: "json",
+    async: false,
+    success: function(data) {
+        $.each(data.colors, function(i, item) {
+            $('ul#grid-wrapper').append('<li class="card' + data.colors[i].name + '><a href="#" class="color-title">' + data.colors[i].name + '</a><div class="color-wrapper"><div class="colors"><div class="details"><span class="shade">' + data.colors[i].shade[i] + '</span><span class="hex">' + data.colors[i].hex[i] + '</span></div></div></div></li>');
+            console.log("pink");
+        });
+    }
+});
+
 $(function() {
     //-------------chip-width
     function width() {
@@ -117,7 +131,6 @@ $(function() {
             // //------hides-cards-which-are-not-selected
             card.not(cardSecondClassColor).addClass('card-hidden');
             // console.log(h);
-            //
             $('.select-btn').hide();
             $('.fab').addClass('display-fab');
         });
@@ -143,7 +156,6 @@ $(function() {
 
             $('.search-wrapper').css('background', 'rgba(0,0,0,0.2)');
         });
-
     }
 
     otherChipSelected();
@@ -197,4 +209,12 @@ function searchFunction() {
             li[i].style.display = "none";
         }
     }
+}
+
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker
+        .register('service-worker.js')
+        .then(function() {
+            console.log("Service-Worker-Registered");
+        });
 }
